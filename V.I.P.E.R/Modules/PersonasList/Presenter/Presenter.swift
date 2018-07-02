@@ -8,7 +8,8 @@
 
 import UIKit
 
-class PersonaPresenter {
+class PersonaPresenter:InteractorProtocolOutput {
+    
     weak var view:TableViewController!
     var interactor:PersonaInteractor?
     var routing:PersonaRouting?
@@ -18,6 +19,16 @@ class PersonaPresenter {
     }
     
     func addNewObject() {
+        routing!.openAddView()
+    }
+    
+    func addNewObjectWithData(name n:String, surname s:String) {
         
+        interactor!.addNewPersonWithData(name: n, surname: s)
+    }
+    
+    func updateObjects(objects: [String]) {
+        
+        view!.setListWithObjects(objects: objects)
     }
 }

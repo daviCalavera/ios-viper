@@ -10,7 +10,7 @@ import Foundation
 
 protocol InteractorProtocolInput {
     
-    func addNewPersonWithData(nombre:String , apellido:String)
+    func addNewPersonWithData(name:String , surname:String)
 }
 
 protocol InteractorProtocolOutput {

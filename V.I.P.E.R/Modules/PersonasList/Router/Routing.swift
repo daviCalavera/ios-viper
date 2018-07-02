@@ -22,4 +22,12 @@ class PersonaRouting {
         interactor.presenter = presenter
         navigationController = UINavigationController(rootViewController: vc)
     }
+    
+    func openAddView() {
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let addVC:AddViewController = storyBoard.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
+        
+        addVC.presenter = self.presenter
+        vc.present(addVC, animated: true, completion: nil)
+    }
 }

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class TableViewController: UITableViewController, PersonaViewProtocol {
-    var presenter: PersonaPresenter?
+    var presenter: PersonaPresenter!
     var objects: [String]?
     
     override func viewDidLoad() {
@@ -18,7 +18,7 @@ class TableViewController: UITableViewController, PersonaViewProtocol {
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
                 barButtonSystemItem: .add, target: self,
-                action: Selector(("addNewObject"))
+                action: #selector(addNewObject)
         )
     }
     
@@ -47,7 +47,7 @@ class TableViewController: UITableViewController, PersonaViewProtocol {
         return cell
     }
     
-    func addNewObject() {
+    @objc func addNewObject(sender: UIBarButtonItem!) {
         presenter!.addNewObject()
     }
     
